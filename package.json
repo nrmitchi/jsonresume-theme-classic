@@ -1,11 +1,11 @@
 {
-  "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.1",
-  "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
+  "name": "jsonresume-theme-classic",
+  "version": "0.0.1",
+  "description": "Classic theme for JSON Resume",
+  "author": "Nick Mitchinson",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/nrmitchi/jsonresume-theme-classic"
   },
   "license": "MIT",
   "dependencies": {

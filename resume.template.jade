@@ -1,0 +1,73 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml', xml:lang='en-us', lang='en-us')
+  head
+    title #{basics.name}
+    meta(http-equiv='Content-Type', content='text/html;charset=utf-8')
+
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+    style !{css}
+
+  body
+    .container
+      #header.row
+        .row
+          h1.text-center #{basics.name}
+        .row.container
+          .col-xs-6
+            p #{basics.location.address}
+            p #{basics.location.city}, #{basics.location.region}, #{basics.location.postal_code}
+          .col-xs-6.text-right
+            p #{basics.email}
+            p #{basics.phone}
+      #resume
+        .container.row
+          h1 SKILLS SUMMARY:
+          ul
+            for skill in skills_summary
+              li= skill
+
+        .container.row
+          h1 TECHNOLOGIES:
+          for tech in technologies_summary
+            .col-xs-4
+              ul.tags
+                li= tech
+
+        .container.row
+          h1 WORK EXPERIENCE:
+          for job in work
+            .row.col-xs-12
+              h2 #{job.position}
+              .row.container
+                h3.col-xs-8 #{job.company}, #{job.location}
+                h3.col-xs-4.date #{job.startDate} - #{job.endDate}
+              ul
+                for point in job.highlights
+                  li= point
+
+        .container.row
+          h1 PERSONAL PROJECTS:
+          for project in personal_projects
+            .row.container
+              h2
+                if project.url == ""
+                  | #{project.name}
+                else 
+                  a(href="#{project.url}", target="_blank") #{project.name}
+              p #{summary}
+              ul
+                for point in project.highlights
+                  li= point
+
+        .row.container
+          h1 EDUCATION:
+          for e in education
+            .row.container
+              h2 #{e.title}
+              .col-xs-6
+                if e.area
+                  p #{e.area}
+                if e.institute
+                  p #{e.institute}
+              .col-xs-6.date
+                p #{e.startDate} - #{e.endDate}
